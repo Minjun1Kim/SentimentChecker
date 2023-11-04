@@ -1,0 +1,33 @@
+{
+    "manifest_version":  3,
+    "name": "Sentiment Analyzer for Social Media",
+    "version": "1.0",
+    "description": "This extension will analyze the sentiment of social media posts and comments.",
+    "permissions": ["activeTab"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/images/get_started16.png",
+            "32": "/images/get_started32.png",
+            "48": "/images/get_started48.png",
+            "128": "/images/get_started128.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.twitter.com/*", "*://*.instagram.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "16": "/images/get_started16.png",
+        "32": "/images/get_started32.png",
+        "48": "/images/get_started48.png",
+        "128": "/images/get_started128.png"
+    }
+
+
+}
